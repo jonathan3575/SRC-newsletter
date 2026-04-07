@@ -416,17 +416,59 @@
   }
 
   @media (max-width: 900px) {
-    nav { padding: 0 24px; }
+    nav { padding: 0 20px; }
     .nav-links { display: none; }
-    section { padding: 64px 24px; }
-    .hero { padding: 0 24px 64px; }
-    .hero-title { font-size: 80px; }
+    .nav-badge { display: none; }
+    section { padding: 56px 20px; }
+    .hero { padding: 0 20px 56px; }
+    .hero-title { font-size: clamp(60px, 16vw, 80px); }
+    .hero-sub { flex-direction: column; gap: 24px; }
+    .hero-meta { text-align: left; margin-left: 0; }
     .edito-grid, .g20-inner, .spinebase-inner { grid-template-columns: 1fr; gap: 40px; }
-    .etudes-grid, .follow-stats, .congres-grid { grid-template-columns: 1fr; }
+    .etudes-grid { grid-template-columns: 1fr; }
+    .follow-stats { grid-template-columns: repeat(2, 1fr); }
+    .congres-grid { grid-template-columns: 1fr; }
     .label-flow { flex-direction: column; }
+    .label-step { min-width: unset; }
     .label-step::after { display: none; }
+    .follow-message { flex-direction: column; padding: 28px 20px; }
     footer { flex-direction: column; gap: 32px; text-align: center; }
     .footer-right { text-align: center; }
+    .section-title { font-size: clamp(36px, 10vw, 56px); }
+    .stat-num { font-size: 52px; }
+
+    /* Hamburger */
+    .hamburger {
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 8px; z-index: 200;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--teal); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed; inset: 56px 0 0 0;
+      background: rgba(8,10,15,0.97); z-index: 99;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none; color: var(--white);
+      font-family: var(--font-display); font-size: 36px;
+      letter-spacing: 0.05em; transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--teal); }
+  }
+
+  @media (min-width: 901px) {
+    .hamburger { display: none; }
+    .mobile-menu { display: none !important; }
   }
 </style>
 </head>
@@ -445,7 +487,21 @@
     <a href="#congres">Congrès</a>
   </div>
   <div class="nav-badge">Avril 2026 — N°01</div>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#edito" onclick="closeMenu()">Édito</a>
+  <a href="#g20" onclick="closeMenu()">G20</a>
+  <a href="#labels" onclick="closeMenu()">Labels</a>
+  <a href="#etudes" onclick="closeMenu()">Études</a>
+  <a href="#spinebase" onclick="closeMenu()">SpineBase</a>
+  <a href="#follow" onclick="closeMenu()">Follow</a>
+  <a href="#congres" onclick="closeMenu()">Congrès</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" style="border-top: none; padding-top: 0;">
@@ -829,6 +885,14 @@
 </footer>
 
 <script>
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
 const reveals = document.querySelectorAll('.reveal');
 reveals.forEach(el => el.classList.add('hidden'));
 const observer = new IntersectionObserver((entries) => {
