@@ -18,6 +18,8 @@
     --gold: #F0B429;
     --gold-dim: #C48F1A;
     --red: #FF4757;
+    --green: #2ECC71;
+    --brown: #C0864A;
     --white: #F0EDE8;
     --muted: #6B7280;
     --border: rgba(255,255,255,0.07);
@@ -214,9 +216,9 @@
     font-family: var(--font-display);
   }
   .label-step:nth-child(1) { border-top: 3px solid var(--teal); }
-  .label-step:nth-child(3) { border-top: 3px solid var(--gold); }
-  .label-step:nth-child(5) { border-top: 3px solid #7C3AED; }
-  .label-step:nth-child(7) { border-top: 3px solid var(--red); }
+  .label-step:nth-child(3) { border-top: 3px solid var(--red); }
+  .label-step:nth-child(5) { border-top: 3px solid var(--green); }
+  .label-step:nth-child(7) { border-top: 3px solid var(--brown); }
   .step-num {
     font-family: var(--font-mono); font-size: 10px;
     color: var(--muted); letter-spacing: 0.2em; margin-bottom: 8px;
@@ -570,37 +572,61 @@
     <div class="label-flow reveal reveal-delay-1">
       <div class="label-step">
         <div class="step-num">01</div>
-        <div class="step-title">Année</div>
+        <div class="step-title" style="color: var(--teal);">Année</div>
         <div class="step-ex">2026S<br>2027S…</div>
       </div>
       <div style="width: 40px; flex-shrink: 0;"></div>
       <div class="label-step">
         <div class="step-num">02</div>
-        <div class="step-title">Diagnostic</div>
+        <div class="step-title" style="color: var(--red);">Diagnostic</div>
         <div class="step-ex">HDLS · Récidives<br>Discopathies · Scolioses…</div>
       </div>
       <div style="width: 40px; flex-shrink: 0;"></div>
       <div class="label-step">
         <div class="step-num">03</div>
-        <div class="step-title">Traitement</div>
+        <div class="step-title" style="color: var(--green);">Traitement</div>
         <div class="step-ex">DISCECTS · TLIFS<br>ALIFS · ACDFS · PERCUTS…</div>
       </div>
       <div style="width: 40px; flex-shrink: 0;"></div>
       <div class="label-step">
         <div class="step-num">04</div>
-        <div class="step-title">+ Complic.</div>
-        <div class="step-ex" style="color: var(--red);">ISOS · NEUROS<br>BRECHES · PJK…</div>
+        <div class="step-title" style="color: var(--brown);">+ Complic.</div>
+        <div class="step-ex" style="color: var(--brown);">ISOS · NEUROS<br>BRECHES · PJK…</div>
       </div>
     </div>
 
     <div class="reveal reveal-delay-2" style="margin-top: 8px;">
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;">Exemples concrets :</div>
-      <div class="label-example">
-        2026S <span class="sep">—</span> RÉCIDIVES <span class="sep">—</span> RECALUNIS <span class="sep">+</span> UBES
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px;">Exemples concrets :</div>
+
+      <!-- Exemple 1 -->
+      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+        <span style="background: rgba(0,212,180,0.12); color: var(--teal); border: 1px solid rgba(0,212,180,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">2026S</span>
+        <span style="color: var(--muted); font-family: var(--font-mono);">—</span>
+        <span style="background: rgba(255,71,87,0.12); color: var(--red); border: 1px solid rgba(255,71,87,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">RÉCIDIVES</span>
+        <span style="color: var(--muted); font-family: var(--font-mono);">—</span>
+        <span style="background: rgba(46,204,113,0.12); color: var(--green); border: 1px solid rgba(46,204,113,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">RECALUNIS</span>
+        <span style="color: var(--muted); font-family: var(--font-mono);">+</span>
+        <span style="background: rgba(46,204,113,0.12); color: var(--green); border: 1px solid rgba(46,204,113,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">UBES</span>
       </div>
-      <br><br>
-      <div class="label-example">
-        2026S <span class="sep">—</span> SCOLIOSES <span class="sep">—</span> CORRECTIONS
+
+      <!-- Exemple 2 -->
+      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
+        <span style="background: rgba(0,212,180,0.12); color: var(--teal); border: 1px solid rgba(0,212,180,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">2026S</span>
+        <span style="color: var(--muted); font-family: var(--font-mono);">—</span>
+        <span style="background: rgba(255,71,87,0.12); color: var(--red); border: 1px solid rgba(255,71,87,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">SCOLIOSES</span>
+        <span style="color: var(--muted); font-family: var(--font-mono);">—</span>
+        <span style="background: rgba(46,204,113,0.12); color: var(--green); border: 1px solid rgba(46,204,113,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">CORRECTIONS</span>
+      </div>
+
+      <!-- Exemple 3 avec complication -->
+      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <span style="background: rgba(0,212,180,0.12); color: var(--teal); border: 1px solid rgba(0,212,180,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">2026S</span>
+        <span style="color: var(--muted); font-family: var(--font-mono);">—</span>
+        <span style="background: rgba(255,71,87,0.12); color: var(--red); border: 1px solid rgba(255,71,87,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">HDLS</span>
+        <span style="color: var(--muted); font-family: var(--font-mono);">—</span>
+        <span style="background: rgba(46,204,113,0.12); color: var(--green); border: 1px solid rgba(46,204,113,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">DISCECTS</span>
+        <span style="color: var(--muted); font-family: var(--font-mono);">+</span>
+        <span style="background: rgba(192,134,74,0.12); color: var(--brown); border: 1px solid rgba(192,134,74,0.35); font-family: var(--font-mono); font-size: 13px; padding: 6px 14px; border-radius: 3px;">NEURO</span>
       </div>
     </div>
   </div>
